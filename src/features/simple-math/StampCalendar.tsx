@@ -90,7 +90,7 @@ export const StampCalendar: React.FC<StampCalendarProps> = ({ progress, todayCou
                 </div>
                 {todayCount >= dailyGoal && (
                     <div className="mt-2 text-center font-bold text-app-pink animate-bounce">
-                        目標達成！スタンプゲット！🎉
+                        もくひょうたっせい！スタンプゲット！🎉
                     </div>
                 )}
             </div>
