@@ -26,9 +26,6 @@ function App() {
                 <h1 className="text-5xl md:text-6xl font-black text-app-blue tracking-tighter drop-shadow-md cursor-pointer" onClick={() => setScreen('home')}>
                     さんすう<span className="text-app-pink">ランド</span>
                 </h1>
-                <div className="bg-white/80 inline-block px-4 py-1 rounded-full mt-2 shadow-sm border-2 border-app-yellow/50">
-                    <p className="text-slate-500 font-bold">1ねんせい</p>
-                </div>
             </header>
 
             <main className="w-full max-w-4xl relative z-10 mb-8">
