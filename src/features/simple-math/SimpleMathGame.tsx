@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, RotateCcw, ChevronLeft, Eye, EyeOff } from 'lucide-react';
-import { TenFrame } from '../../components/TenFrame';
 import { AppleIcon } from './AppleIcon';
 
 type GameMode = 'multiplication';
@@ -15,12 +14,12 @@ interface SimpleMathGameProps {
 
 export const SimpleMathGame: React.FC<SimpleMathGameProps> = ({ mode, level, onBack, onCorrectAnswer }) => {
     const [score, setScore] = useState(0);
-    const [problem, setProblem] = useState(() => generateProblem(mode, level));
+    const [problem, setProblem] = useState(() => generateProblem(level));
     const [userAnswer, setUserAnswer] = useState('');
     const [feedback, setFeedback] = useState<'correct' | 'incorrect' | null>(null);
     const [showHint, setShowHint] = useState(true);
 
-    function generateProblem(currentMode: GameMode, currentLevel: 1 | 2 | 3 | 4) {
+    function generateProblem(currentLevel: 1 | 2 | 3 | 4) {
         // Multiplication
         if (currentLevel === 1) {
             // Level 1: 1-9 Tables (Simple 1-digit x 1-digit)
@@ -57,7 +56,7 @@ export const SimpleMathGame: React.FC<SimpleMathGameProps> = ({ mode, level, onB
     };
 
     const nextProblem = () => {
-        setProblem(generateProblem(mode, level));
+        setProblem(generateProblem(level));
         setUserAnswer('');
         setFeedback(null);
     };
