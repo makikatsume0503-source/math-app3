@@ -22,27 +22,45 @@ export const SimpleMathGame: React.FC<SimpleMathGameProps> = ({ mode, level, onB
     function generateProblem(currentLevel: 1 | 2 | 3 | 4) {
         // Multiplication
         if (currentLevel === 1) {
-            // Level 1: 1-9 Tables (Simple 1-digit x 1-digit)
+            // Level 1: Beginner (1-9 Tables)
             const a = Math.floor(Math.random() * 9) + 1; // 1-9
             const b = Math.floor(Math.random() * 9) + 1; // 1-9
             return { a, b, ans: a * b, operator: '×', level: 1 };
         } else if (currentLevel === 2) {
-            // Level 2: Random 1-digit (Same range as Level 1 but conceptually "Random test")
-            const a = Math.floor(Math.random() * 9) + 1;
-            const b = Math.floor(Math.random() * 9) + 1;
+            // Level 2: Intermediate (2-digit x 1-digit, No Carry)
+            // To ensure no carry, if b is e.g. 3, a's ones digit must be 0-3.
+            const b = Math.floor(Math.random() * 8) + 2; // 2-9
+            const maxOnes = Math.floor(9 / b);
+            const aOnes = Math.floor(Math.random() * (maxOnes + 1));
+            const aTens = Math.floor(Math.random() * 9) + 1; // 1-9
+            const a = aTens * 10 + aOnes;
             return { a, b, ans: a * b, operator: '×', level: 2 };
         } else if (currentLevel === 3) {
-            // Level 3: Challenge (2-digit x 1-digit) e.g. 12x3
-            const a = Math.floor(Math.random() * 90) + 10; // 10-99
-            const b = Math.floor(Math.random() * 8) + 2;   // 2-9
+            // Level 3: Advanced (2-digit x 1-digit, With Carry)
+            // We want (a % 10) * b >= 10
+            let a, b;
+            do {
+                a = Math.floor(Math.random() * 90) + 10; // 10-99
+                b = Math.floor(Math.random() * 8) + 2;   // 2-9
+            } while ((a % 10) * b < 10); // Retry if no carry
             return { a, b, ans: a * b, operator: '×', level: 3 };
         } else {
-            // Level 4: Super Challenge (2-digit x 2-digit) e.g. 24x15
+            // Level 4: Super Advanced (2-digit x 2-digit)
             const a = Math.floor(Math.random() * 90) + 10; // 10-99
             const b = Math.floor(Math.random() * 90) + 10; // 10-99
             return { a, b, ans: a * b, operator: '×', level: 4 };
         }
     }
+
+    const getLevelTitle = (l: number) => {
+        switch (l) {
+            case 1: return '初級';
+            case 2: return '中級';
+            case 3: return '上級';
+            case 4: return '超上級';
+            default: return `Lv.${l}`;
+        }
+    };
 
     const checkAnswer = () => {
         const num = parseInt(userAnswer);
@@ -80,7 +98,7 @@ export const SimpleMathGame: React.FC<SimpleMathGameProps> = ({ mode, level, onB
                 <div className="bg-white/80 px-4 py-1 rounded-full border-2 border-slate-100 shadow-sm flex items-center gap-2">
                     <span className="w-3 h-3 rounded-full bg-app-yellow" />
                     <span className="font-bold text-slate-500 text-sm">
-                        かけざん Lv.{level}
+                        かけざん {getLevelTitle(level)}
                     </span>
                 </div>
 

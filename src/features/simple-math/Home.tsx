@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { StampCalendar } from './StampCalendar';
 import { useDailyProgress } from '../../hooks/useDailyProgress';
+import { MultiplicationTable } from '../../components/MultiplicationTable';
+import { BookOpen } from 'lucide-react';
 
 type GameMode = 'multiplication';
 
@@ -11,12 +13,23 @@ interface HomeProps {
 
 export const Home: React.FC<HomeProps> = ({ onStartGame }) => {
     const { progress, todayCount, dailyGoal } = useDailyProgress();
+    const [showTable, setShowTable] = useState(false);
 
     return (
         <div className="max-w-2xl mx-auto p-6 flex flex-col items-center gap-8">
             <div className="w-full">
                 {/* Multiplication Card */}
-                <div className="bg-white/90 backdrop-blur rounded-[2rem] p-6 shadow-xl border-4 border-app-yellow/50 hover:scale-105 transition-transform max-w-md mx-auto">
+                <div className="bg-white/90 backdrop-blur rounded-[2rem] p-6 shadow-xl border-4 border-app-yellow/50 hover:scale-105 transition-transform max-w-md mx-auto relative">
+
+                    {/* Table Button */}
+                    <button
+                        onClick={() => setShowTable(true)}
+                        className="absolute top-4 right-4 p-2 bg-blue-100 text-blue-500 rounded-full hover:bg-blue-200 transition-colors"
+                        title="九九表を見る"
+                    >
+                        <BookOpen size={24} />
+                    </button>
+
                     <div className="text-center mb-4">
                         <span className="text-4xl bg-app-yellow/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto text-orange-500 font-black border-2 border-orange-400">
                             ×
@@ -25,16 +38,16 @@ export const Home: React.FC<HomeProps> = ({ onStartGame }) => {
                     </div>
                     <div className="space-y-3">
                         <button onClick={() => onStartGame('multiplication', 1)} className="w-full py-2 rounded-xl bg-orange-400 text-white font-bold shadow-md border-b-4 border-orange-600 active:border-b-0 active:translate-y-1 transition-all">
-                            レベル 1 (九九)
+                            初級 (九九)
                         </button>
                         <button onClick={() => onStartGame('multiplication', 2)} className="w-full py-2 rounded-xl bg-orange-500 text-white font-bold shadow-md border-b-4 border-orange-700 active:border-b-0 active:translate-y-1 transition-all">
-                            レベル 2 (ランダム)
+                            中級 (2桁 × 1桁)
                         </button>
                         <button onClick={() => onStartGame('multiplication', 3)} className="w-full py-2 rounded-xl bg-red-500 text-white font-bold shadow-md border-b-4 border-red-700 active:border-b-0 active:translate-y-1 transition-all">
-                            レベル 3 (ちょうせん)
+                            上級 (2桁 × 1桁 繰り上がり)
                         </button>
                         <button onClick={() => onStartGame('multiplication', 4)} className="w-full py-2 rounded-xl bg-slate-800 text-app-yellow font-black shadow-md border-b-4 border-black active:border-b-0 active:translate-y-1 transition-all relative overflow-hidden group">
-                            <span className="relative z-10">レベル 4 (超・ちょうせん)</span>
+                            <span className="relative z-10">超上級 (2桁 × 2桁)</span>
                             <div className="absolute inset-0 bg-white/10 group-hover:translate-x-full transition-transform duration-500 transform -skew-x-12 -translate-x-full" />
                         </button>
                     </div>
@@ -50,6 +63,8 @@ export const Home: React.FC<HomeProps> = ({ onStartGame }) => {
             >
                 <StampCalendar progress={progress} todayCount={todayCount} dailyGoal={dailyGoal} />
             </motion.div>
+
+            <MultiplicationTable isOpen={showTable} onClose={() => setShowTable(false)} />
         </div>
     );
 };
