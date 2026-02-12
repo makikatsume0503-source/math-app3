@@ -29,7 +29,15 @@ export const StampCalendar: React.FC<StampCalendarProps> = ({ progress, todayCou
     // Seasonal Decorations
     const getSeasonalTheme = (month: number) => {
         switch (month) {
-            case 1: // February (0-indexed)
+            case 0: // January
+                return {
+                    icon: '🎍',
+                    title: 'おしょうがつ',
+                    color: 'text-red-500',
+                    bg: 'bg-red-50',
+                    border: 'border-red-200'
+                };
+            case 1: // February
                 return {
                     icon: '👹',
                     title: 'せつぶん',
@@ -44,6 +52,78 @@ export const StampCalendar: React.FC<StampCalendarProps> = ({ progress, todayCou
                     color: 'text-pink-500',
                     bg: 'bg-pink-50',
                     border: 'border-pink-200'
+                };
+            case 3: // April
+                return {
+                    icon: '🌸',
+                    title: 'にゅうがくしき',
+                    color: 'text-pink-400',
+                    bg: 'bg-pink-50',
+                    border: 'border-pink-200'
+                };
+            case 4: // May
+                return {
+                    icon: '🎏',
+                    title: 'こどものひ',
+                    color: 'text-blue-500',
+                    bg: 'bg-blue-50',
+                    border: 'border-blue-200'
+                };
+            case 5: // June
+                return {
+                    icon: '☔',
+                    title: 'つゆ',
+                    color: 'text-indigo-500',
+                    bg: 'bg-indigo-50',
+                    border: 'border-indigo-200'
+                };
+            case 6: // July
+                return {
+                    icon: '🌻',
+                    title: 'なつやすみ',
+                    color: 'text-sky-500',
+                    bg: 'bg-sky-50',
+                    border: 'border-sky-200'
+                };
+            case 7: // August
+                return {
+                    icon: '🎆', // Fireworks for Obon/Summer
+                    title: 'おぼん',
+                    color: 'text-purple-500',
+                    bg: 'bg-purple-50',
+                    border: 'border-purple-200'
+                };
+            case 8: // September
+                return {
+                    icon: '🎑',
+                    title: 'おつきみ',
+                    color: 'text-yellow-600',
+                    bg: 'bg-yellow-50',
+                    border: 'border-yellow-200'
+                };
+            case 9: // October
+                return {
+                    icon: '🎃',
+                    title: 'ハロウィーン',
+                    color: 'text-orange-500',
+                    bg: 'bg-orange-50',
+                    border: 'border-orange-200'
+                };
+            case 10: // November
+                return {
+                    icon: '🍁',
+                    title: 'こうよう',
+                    color: 'text-red-600',
+                    bg: 'bg-orange-50',
+                    border: 'border-red-200'
+                };
+            case 11: // December
+                return {
+                    icon: '🎄',
+                    title: 'クリスマス',
+                    color: 'text-green-600',
+                    bg: 'bg-green-50',
+                    border: 'border-green-200'
                 };
             default:
                 return {
