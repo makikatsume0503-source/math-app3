@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const STORAGE_KEY = 'math-app-daily-progress';
-const DAILY_GOAL = 10;
+const DAILY_GOAL = 20;
 
 interface DailyData {
     count: number;
