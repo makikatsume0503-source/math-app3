@@ -53,13 +53,7 @@ export const SimpleMathGame: React.FC<SimpleMathGameProps> = ({ mode, level, onB
     }
 
     const getLevelTitle = (l: number) => {
-        switch (l) {
-            case 1: return '初級';
-            case 2: return '中級';
-            case 3: return '上級';
-            case 4: return '超上級';
-            default: return `Lv.${l}`;
-        }
+        return `Lv.${l}`;
     };
 
     const checkAnswer = () => {
@@ -170,7 +164,7 @@ export const SimpleMathGame: React.FC<SimpleMathGameProps> = ({ mode, level, onB
                     <button
                         key={num}
                         onClick={() => setUserAnswer(prev => {
-                            if (prev.length >= 2) return prev; // Limit to 2 digits
+                            if (prev.length >= 5) return prev; // Limit to 5 digits
                             return prev + num.toString();
                         })}
                         className="aspect-square bg-white border-b-[5px] border-slate-200 rounded-xl text-2xl font-bold text-slate-600 active:border-b-0 active:translate-y-[5px] transition-all hover:bg-slate-50 shadow-sm"

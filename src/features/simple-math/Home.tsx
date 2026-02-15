@@ -38,16 +38,16 @@ export const Home: React.FC<HomeProps> = ({ onStartGame }) => {
                     </div>
                     <div className="space-y-3">
                         <button onClick={() => onStartGame('multiplication', 1)} className="w-full py-2 rounded-xl bg-orange-400 text-white font-bold shadow-md border-b-4 border-orange-600 active:border-b-0 active:translate-y-1 transition-all">
-                            初級 (九九)
+                            Lv.1 (九九)
                         </button>
                         <button onClick={() => onStartGame('multiplication', 2)} className="w-full py-2 rounded-xl bg-orange-500 text-white font-bold shadow-md border-b-4 border-orange-700 active:border-b-0 active:translate-y-1 transition-all">
-                            中級 (2桁 × 1桁)
+                            Lv.2 (2桁 × 1桁)
                         </button>
                         <button onClick={() => onStartGame('multiplication', 3)} className="w-full py-2 rounded-xl bg-red-500 text-white font-bold shadow-md border-b-4 border-red-700 active:border-b-0 active:translate-y-1 transition-all">
-                            上級 (2桁 × 1桁 繰り上がり)
+                            Lv.3 (2桁 × 1桁 繰り上がり)
                         </button>
                         <button onClick={() => onStartGame('multiplication', 4)} className="w-full py-2 rounded-xl bg-slate-800 text-app-yellow font-black shadow-md border-b-4 border-black active:border-b-0 active:translate-y-1 transition-all relative overflow-hidden group">
-                            <span className="relative z-10">超上級 (2桁 × 2桁)</span>
+                            <span className="relative z-10">Lv.4 (2桁 × 2桁)</span>
                             <div className="absolute inset-0 bg-white/10 group-hover:translate-x-full transition-transform duration-500 transform -skew-x-12 -translate-x-full" />
                         </button>
                     </div>
