@@ -13,6 +13,7 @@ interface SimpleMathGameProps {
 }
 
 export const SimpleMathGame: React.FC<SimpleMathGameProps> = ({ mode, level, onBack, onCorrectAnswer }) => {
+    // Level 3 and above: Hints are hidden
     const [score, setScore] = useState(0);
     const [problem, setProblem] = useState(() => generateProblem(level));
     const [userAnswer, setUserAnswer] = useState('');
@@ -117,18 +118,20 @@ export const SimpleMathGame: React.FC<SimpleMathGameProps> = ({ mode, level, onB
                     </span>
                 </div>
 
-                <button
-                    onClick={() => setShowHint(!showHint)}
-                    className={`text-sm font-bold px-4 py-1.5 rounded-full border-2 transition-all flex items-center gap-2 mx-auto ${showHint ? 'bg-app-green text-white border-app-green shadow-md' : 'bg-white text-slate-400 border-slate-200'}`}
-                >
-                    {showHint ? <Eye size={16} /> : <EyeOff size={16} />}
-                    {showHint ? 'ヒントをかくす' : 'ヒントをみる'}
-                </button>
+                {level < 3 && (
+                    <button
+                        onClick={() => setShowHint(!showHint)}
+                        className={`text-sm font-bold px-4 py-1.5 rounded-full border-2 transition-all flex items-center gap-2 mx-auto ${showHint ? 'bg-app-green text-white border-app-green shadow-md' : 'bg-white text-slate-400 border-slate-200'}`}
+                    >
+                        {showHint ? <Eye size={16} /> : <EyeOff size={16} />}
+                        {showHint ? 'ヒントをかくす' : 'ヒントをみる'}
+                    </button>
+                )}
             </div>
 
-            {/* Visuals */}
+            {/* Visuals - Hiding for Level 3+ */}
             <AnimatePresence>
-                {showHint && (
+                {showHint && level < 3 && (
                     <motion.div
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}

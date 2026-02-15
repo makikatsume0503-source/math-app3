@@ -24,10 +24,11 @@ export const Home: React.FC<HomeProps> = ({ onStartGame }) => {
                     {/* Table Button */}
                     <button
                         onClick={() => setShowTable(true)}
-                        className="absolute top-4 right-4 p-2 bg-blue-100 text-blue-500 rounded-full hover:bg-blue-200 transition-colors"
+                        className="absolute top-4 right-4 p-2 bg-blue-100 text-blue-500 rounded-lg hover:bg-blue-200 transition-colors flex items-center gap-1 font-bold text-sm"
                         title="九九表を見る"
                     >
-                        <BookOpen size={24} />
+                        <BookOpen size={20} />
+                        <span>早見表</span>
                     </button>
 
                     <div className="text-center mb-4">
