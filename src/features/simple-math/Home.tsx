@@ -66,6 +66,10 @@ export const Home: React.FC<HomeProps> = ({ onStartGame }) => {
             </motion.div>
 
             <MultiplicationTable isOpen={showTable} onClose={() => setShowTable(false)} />
+
+            <div className="text-slate-400 text-xs mt-8">
+                v2026.02.16-2
+            </div>
         </div>
     );
 };
