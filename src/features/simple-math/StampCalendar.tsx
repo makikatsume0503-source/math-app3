@@ -219,7 +219,7 @@ export const StampCalendar: React.FC<StampCalendarProps> = ({ progress, todayCou
                                     {StampComponent}
                                 </motion.div>
                             ) : count > 0 ? (
-                                <div className="z-10 text-[0.65rem] font-bold text-orange-300 translate-y-1">
+                                <div className="z-10 text-[0.65rem] font-bold text-blue-400 translate-y-1">
                                     {count}
                                 </div>
                             ) : null}

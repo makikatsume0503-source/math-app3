@@ -102,7 +102,7 @@ export const SimpleMathGame: React.FC<SimpleMathGameProps> = ({ mode, level, onB
 
                 <div className="flex items-center gap-2 bg-app-yellow/20 px-3 py-1 rounded-full border-2 border-app-yellow text-app-yellow-dark">
                     <span className="text-lg">⭐</span>
-                    <span className="text-xl font-black text-orange-400">{score}</span>
+                    <span className="text-xl font-black text-blue-500">{score}</span>
                 </div>
             </div>
 
@@ -143,8 +143,8 @@ export const SimpleMathGame: React.FC<SimpleMathGameProps> = ({ mode, level, onB
                             {mode === 'multiplication' && level <= 2 && (
                                 <div className="flex flex-wrap justify-center gap-4">
                                     {Array.from({ length: problem.a }).map((_, groupIndex) => (
-                                        <div key={groupIndex} className="bg-orange-50 p-2 rounded-xl border-2 border-orange-100 flex flex-col items-center">
-                                            <span className="text-xs font-bold text-orange-300 mb-1">{groupIndex + 1}</span>
+                                        <div key={groupIndex} className="bg-blue-50 p-2 rounded-xl border-2 border-blue-100 flex flex-col items-center">
+                                            <span className="text-xs font-bold text-blue-300 mb-1">{groupIndex + 1}</span>
                                             <div className="grid grid-cols-3 gap-1">
                                                 {Array.from({ length: problem.b }).map((_, itemIndex) => (
                                                     <div key={itemIndex}>
@@ -211,7 +211,7 @@ export const SimpleMathGame: React.FC<SimpleMathGameProps> = ({ mode, level, onB
                             </div>
                             <button
                                 onClick={nextProblem}
-                                className="px-8 py-2 bg-app-yellow text-white rounded-full font-bold text-lg shadow-[0_8px_15px_rgba(255,209,102,0.4)] border-b-4 border-orange-300 hover:scale-105 active:border-b-0 active:translate-y-1 transition-all flex items-center gap-2"
+                                className="px-8 py-2 bg-app-yellow text-white rounded-full font-bold text-lg shadow-[0_8px_15px_rgba(255,209,102,0.4)] border-b-4 border-blue-300 hover:scale-105 active:border-b-0 active:translate-y-1 transition-all flex items-center gap-2"
                             >
                                 つぎへGO! <ArrowRight strokeWidth={3} />
                             </button>

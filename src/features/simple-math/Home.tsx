@@ -32,16 +32,16 @@ export const Home: React.FC<HomeProps> = ({ onStartGame }) => {
                     </button>
 
                     <div className="text-center mb-4">
-                        <span className="text-4xl bg-app-yellow/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto text-orange-500 font-black border-2 border-orange-400">
+                        <span className="text-4xl bg-app-yellow/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto text-blue-500 font-black border-2 border-blue-400">
                             ×
                         </span>
                         <h2 className="text-2xl font-black text-slate-700 mt-2">かけざん</h2>
                     </div>
                     <div className="space-y-3">
-                        <button onClick={() => onStartGame('multiplication', 1)} className="w-full py-2 rounded-xl bg-orange-400 text-white font-bold shadow-md border-b-4 border-orange-600 active:border-b-0 active:translate-y-1 transition-all">
+                        <button onClick={() => onStartGame('multiplication', 1)} className="w-full py-2 rounded-xl bg-blue-400 text-white font-bold shadow-md border-b-4 border-blue-600 active:border-b-0 active:translate-y-1 transition-all">
                             Lv.1 (九九)
                         </button>
-                        <button onClick={() => onStartGame('multiplication', 2)} className="w-full py-2 rounded-xl bg-orange-500 text-white font-bold shadow-md border-b-4 border-orange-700 active:border-b-0 active:translate-y-1 transition-all">
+                        <button onClick={() => onStartGame('multiplication', 2)} className="w-full py-2 rounded-xl bg-blue-500 text-white font-bold shadow-md border-b-4 border-blue-700 active:border-b-0 active:translate-y-1 transition-all">
                             Lv.2 (2桁 × 1桁)
                         </button>
                         <button onClick={() => onStartGame('multiplication', 3)} className="w-full py-2 rounded-xl bg-red-500 text-white font-bold shadow-md border-b-4 border-red-700 active:border-b-0 active:translate-y-1 transition-all">
